@@ -81,6 +81,11 @@ run = 'move-node-to-workspace 3'
 if.app-id = 'net.whatsapp.WhatsApp'
 run = 'move-node-to-workspace 4'
 
+# Slack (work machines) - not installed here, so this rule just never matches
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-node-to-workspace 4'
+
 # Scratch on 5: notes, music, whatever is temporary - floating, so windows
 # keep whatever size suits them
 [[on-window-detected]]
