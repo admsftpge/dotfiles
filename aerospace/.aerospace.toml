@@ -22,11 +22,15 @@ outer.bottom = 0
 alt-1 = 'workspace 1'  # Chrome
 alt-2 = 'workspace 2'  # Ghostty
 alt-3 = 'workspace 3'  # Editor + simulators
+alt-4 = 'workspace 4'  # spare - comms, notes, music
+alt-5 = 'workspace 5'  # spare - scratch
 
 # Send the focused window to a workspace (and follow it there)
 alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
 alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
 alt-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
+alt-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
+alt-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
 
 # Back to the previous workspace, like alt-tab for workspaces
 alt-tab = 'workspace-back-and-forth'
