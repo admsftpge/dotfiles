@@ -22,8 +22,8 @@ outer.bottom = 0
 alt-1 = 'workspace 1'  # Chrome
 alt-2 = 'workspace 2'  # Ghostty
 alt-3 = 'workspace 3'  # Editor + simulators
-alt-4 = 'workspace 4'  # spare - comms, notes, music
-alt-5 = 'workspace 5'  # spare - scratch
+alt-4 = 'workspace 4'  # comms
+alt-5 = 'workspace 5'  # scratch (floating)
 
 # Send the focused window to a workspace (and follow it there)
 alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
@@ -75,3 +75,18 @@ run = ['layout floating', 'move-node-to-workspace 3']
 [[on-window-detected]]
 if.app-id = 'com.google.android.studio'
 run = 'move-node-to-workspace 3'
+
+# Comms on 4, out of the way of the 1-3 workflow loop
+[[on-window-detected]]
+if.app-id = 'net.whatsapp.WhatsApp'
+run = 'move-node-to-workspace 4'
+
+# Scratch on 5: notes, music, whatever is temporary - floating, so windows
+# keep whatever size suits them
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = ['layout floating', 'move-node-to-workspace 5']
+
+[[on-window-detected]]
+if.workspace = '5'
+run = 'layout floating'
