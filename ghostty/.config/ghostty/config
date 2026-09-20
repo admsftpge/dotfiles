@@ -37,7 +37,8 @@ macos-titlebar-style = tabs
 # Dim splits that don't have focus
 unfocused-split-opacity = 0.85
 
-# Keyboard scrolling: Cmd+Shift+Up/Down scrolls 5 lines at a time
+# Keyboard scrolling: Cmd+Shift+Up/Down scrolls 5 lines at a time.
+# (Inside tmux use plain Shift+Up/Down instead - tmux keeps its own scrollback.)
 # (replaces a duplicate jump_to_prompt binding; Cmd+Up/Down still does that)
 keybind = cmd+shift+arrow_up=scroll_page_lines:-5
 keybind = cmd+shift+arrow_down=scroll_page_lines:5
