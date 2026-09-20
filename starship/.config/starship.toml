@@ -1,0 +1,30 @@
+# Starship prompt - https://starship.rs/config
+# Single line on the left, everything else pushed to the right edge.
+
+# No blank line between prompts
+add_newline = false
+
+# Left: folder, git branch/status, then the prompt character
+format = """$directory$git_branch$git_status$character"""
+
+# Right: language versions, how long the last command took, and the time
+right_format = """$nodejs$python$rust$golang$java$cmd_duration$time"""
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
+[cmd_duration]
+min_time = 2000
+format = "[took $duration]($style) "
+style = "yellow"
+
+[time]
+disabled = false
+format = "[$time]($style)"
+style = "bold blue"
+time_format = "%H:%M"
