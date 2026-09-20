@@ -1,0 +1,73 @@
+# AeroSpace config - https://nikitabobko.github.io/AeroSpace/guide
+# Used mainly as a keyboard-driven workspace switcher: one app per workspace,
+# jump straight to it with alt+<number>.
+
+# Start AeroSpace at login
+start-at-login = true
+
+# Don't use macOS Spaces; AeroSpace manages its own workspaces
+automatically-unhide-macos-hidden-apps = true
+
+# New windows on the same workspace split the screen rather than overlap
+[gaps]
+inner.horizontal = 0
+inner.vertical = 0
+outer.left = 0
+outer.right = 0
+outer.top = 0
+outer.bottom = 0
+
+[mode.main.binding]
+# Jump to a workspace
+alt-1 = 'workspace 1'  # Chrome
+alt-2 = 'workspace 2'  # Ghostty
+alt-3 = 'workspace 3'  # Editor + simulators
+
+# Send the focused window to a workspace (and follow it there)
+alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
+alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
+alt-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
+
+# Back to the previous workspace, like alt-tab for workspaces
+alt-tab = 'workspace-back-and-forth'
+
+# Move focus between windows that share a workspace
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# Toggle the focused window between tiled and floating (handy on a big screen)
+alt-f = 'layout floating tiling'
+
+# Reload this file after editing it
+alt-shift-c = 'reload-config'
+
+# --- Which app starts on which workspace -------------------------------------
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace 1'
+
+# Ghostty floats: keeps the size/position set by hand, and stops new tabs
+# (native macOS tabs are separate windows) from re-tiling to fill the screen
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = ['layout floating', 'move-node-to-workspace 2']
+
+[[on-window-detected]]
+if.app-id = 'dev.zed.Zed'
+run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = 'move-node-to-workspace 3'
+
+# Simulators float: phone-shaped windows look wrong stretched across the screen
+[[on-window-detected]]
+if.app-id = 'com.apple.iphonesimulator'
+run = ['layout floating', 'move-node-to-workspace 3']
+
+[[on-window-detected]]
+if.app-id = 'com.google.android.studio'
+run = 'move-node-to-workspace 3'
